@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💖 Un correo para ti 💖</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh; /* 🔥 CAMBIO CLAVE */
+      margin: 0;
+      text-align: center;
+      color: #333;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    .screen {
+      display: none;
+      animation: fadeIn 0.8s ease;
+      width: 90%;
+      max-width: 600px;
+    }
+
+    .active {
+      display: block;
+    }
+
+    .main-img {
+      width: 250px;
+      margin-bottom: 15px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .main-img:hover {
+      transform: scale(1.05);
+    }
+
+    .card {
+      background: repeating-linear-gradient(
+        white,
+        white 28px,
+        #e3e3e3 29px
+      );
+      padding: 30px;
+      border: 2px solid #e5e5e5;
+      width: 95%;
+      max-width: 800px;
+      text-align: left;
+      margin: 0 auto;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    .card h3 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .card p {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.2em;
+      line-height: 1.6;
+      text-align: justify;
+      margin: 10px 0;
+    }
+
+    .return-btn {
+      margin-top: 25px;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      background-color: #ff4f81;
+      color: white;
+      border-radius: 6px;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="screen active" id="screen1">
+    <h2>Hola, te llegó un correo 💌</h2>
+    <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" class="main-img" onclick="nextScreen(2)">
+  </div>
+
+  <div class="screen" id="screen2">
+    <h2>Una cartita para ti 💖</h2>
+    <img src="https://cdn-icons-png.flaticon.com/512/942/942748.png" class="main-img" onclick="nextScreen(3)">
+  </div>
+
+  <div class="screen" id="screen3">
+    <h2>¡Ábrelo! ✨</h2>
+    <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" class="main-img" onclick="nextScreen(4)">
+  </div>
+
+  <div class="screen" id="screen4">
+    <h2>¿Qué dirá? 💭</h2>
+    <img src="https://cdn-icons-png.flaticon.com/512/1040/1040230.png" class="main-img" onclick="nextScreen(5)">
+  </div>
+
+  <div class="screen" id="screen5">
+    <div class="card">
+
+      <h3>Para ti, Mi Cachetes 💖</h3>
+
+      <p>Hola mi amor, espero que te esté yendo muy bien en el trabajo. Solo quería recordarte lo mucho que te amo y la falta que me haces cuando no estoy contigo.</p>
+
+      <p>Gracias por todo el esfuerzo que estás haciendo en este momento. Yo también estoy dando lo mejor de mí para poder verte sonreír y que sientas que no estás sola. En todo momento estoy pensando en ti… desde la distancia te mando muchos besos que en persona aún no te puedo dar.</p>
+
+      <p>Ya casi llega el 22 de abril, una fecha que me hace recordar todos los momentos lindos, los mejores de mi vida a tu lado. Desde cuando me quedaba toda la tarde en tu casa, nuestra primera salida juntos, hasta el glamping en Dapa… y muchos más recuerdos que marcaron mi vida y que jamás olvidaré.</p>
+
+      <p>Espero que sean muchos más, que podamos seguir sumando recuerdos por el resto de nuestras vidas… que pasemos de celebrar aniversarios de novios a aniversarios de matrimonio.</p>
+
+      <p>Confío en que este proceso que estamos viviendo termine bien, y que podamos reencontrarnos en nuestro amor en plenitud, de la mano de Dios.</p>
+
+      <p>Te amo hasta la otra galaxia, mi cachetona hermosa 💖</p>
+
+      <p>Con todo mi amor,</p>
+      <p>Jhoi 💌</p>
+
+    </div>
+
+    <button class="return-btn" onclick="nextScreen(1)">🔙 Regresar</button>
+  </div>
+
+  <script>
+    function nextScreen(num) {
+      const current = document.querySelector(".screen.active");
+      if (current) current.classList.remove("active");
+      document.getElementById("screen" + num).classList.add("active");
+
+      window.scrollTo(0, 0); // 🔥 evita que quede abajo
+    }
+  </script>
+
+</body>
+</html>
